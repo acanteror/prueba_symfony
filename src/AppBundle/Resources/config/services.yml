@@ -1,0 +1,23 @@
+services:
+#    landing.example:
+#        class: LandingBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    app.manager.city:
+           class: AppBundle\Manager\CityManager
+           arguments: ['@doctrine.orm.entity_manager']
+
+    app.manager.vehicle:
+           class: AppBundle\Manager\VehicleManager
+           arguments: ['@doctrine.orm.entity_manager']
+
+    app.manager.rent:
+           class: AppBundle\Manager\RentManager
+           arguments: ['@doctrine.orm.entity_manager']
+
+    app.manager.client:
+           class: AppBundle\Manager\ClientManager
+           arguments: ['@doctrine.orm.entity_manager']
+
+    app.manager.date:
+               class: AppBundle\Manager\DateManager

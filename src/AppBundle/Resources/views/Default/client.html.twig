@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container-fluid" style="width: 100%; height: 100%;">
+
+        <div style="text-align: center">
+            <h1>SERVICIO DE ALQUILER DE COCHES</h1>
+        </div>
+
+        {% for flash_message in app.session.flashBag.get('notice') %}
+            <div class="alert alert-danger alert-styled-left">
+                <span class="text-semibold">{{ flash_message }}</span>
+            </div>
+        {% endfor %}
+
+        <div class="wrapper" style="padding: 2% 30% 10% 30%;" >
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel" style="background-color:grey ;padding:10px; margin-top:10px;">
+
+                        <form method="post" action="{{ path('save-rent') }}" role="form" enctype="multipart/form-data" xmlns="http://www.w3.org/1999/html">
+
+                            {{ form_start(form) }}
+                            {{ form_errors(form) }}
+
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="form-group">
+                                        {{ form_label(form.name) }}
+                                        {{ form_widget(form.name) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form_label(form.dni) }}
+                                        {{ form_widget(form.dni) }}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-xs-12">
+                                    <div class="form-group">
+                                        {{ form_label(form.lastname) }}
+                                        {{ form_widget(form.lastname) }}
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form_label(form.dob) }}
+                                        {{ form_widget(form.dob) }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="submitBtnDiv" class="form-group">
+                                <button id="submitBtn" type="submit" class="btn btn-warning btn-block">Enviar</button>
+                            </div>
+
+                            {{ form_end(form) }}
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+
+
+
+    </script>
+
+{% endblock %}
+
+
